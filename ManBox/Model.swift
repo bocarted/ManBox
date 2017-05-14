@@ -18,7 +18,11 @@ enum Direction : String {
     case Down
 }
 
-struct Point {
+enum DirectionToPoint : Point {
+    
+}
+
+struct Point : RawRepresentable {
     
     var x : Int {
         didSet {
@@ -45,20 +49,14 @@ struct Point {
         return !(p1 != p2)
     }
     
-//    //if they are near
-//    static func >= (p1: Point, p2: Point) -> Bool {
-//        if (p1.x == p2.x) {
-//            return (p1.y - 1 == p2.y) || (p1.y + 1 == p2.y)
-//        } else if (p1.y == p2.y) {
-//            return (p1.x - 1 == p2.x) || (p1.x + 1 == p2.x)
-//        } else {
-//            return false
-//        }
-//    }
+    static func + (p1: Point, p2: Point) -> Point {
+        return Point(x: p1.x + p2.x, y: p1.y + p2.y)
+    }
+    
 }
 
 
-class Room {
+class RoomModel {
     
     var manWin = false
 
@@ -140,7 +138,11 @@ class Room {
                 man = oldPosition
             }
         }
+    }
     
+    func moveManAtPoint (_ newPosition: Point) {
+        let oldPosition = man
+        man = man + newPosition
         
     }
     

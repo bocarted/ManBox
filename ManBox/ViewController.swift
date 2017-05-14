@@ -11,7 +11,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var room : Room!
+    var room : RoomModel!
     
     enum Square : String {
         case Man = "😍"
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     }
     
     func reset () {
-        room = Room()
+        room = RoomModel()
         squares = Array(repeating: Array(repeatElement(.Empty, count: roomWidth)), count: roomHeight)
         squares[room.man.y][room.man.x] = .Man
         squares[room.box.y][room.box.x] = .Box
