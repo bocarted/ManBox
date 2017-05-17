@@ -11,49 +11,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var room : RoomModel!
-    
-    enum Square : String {
-        case Man = "😍"
-        case Loose = "⛔️"
-        case Box = "💍"
-        case Block = "◼️"
-        case Win = "👸"
-        case Empty = "◻️"
-    }
-    
-    var squares : [[Square]]!
-    
-    
-    var contentOfPrintField : String {
-        get {
-            
-            var line : String = ""
-            
-            for i in 0...roomHeight - 1 {
-                for j in 0...roomWidth - 1 {
-                    line += squares[i][j].rawValue
-                    }                
-                line += "\n"
-            }
-            if room.manWin {
-                line = "I LOVE YOU"
-            }
-            return line
-        }
-    }
+
+    var roomViewModel : RoomViewModel!
+  
+
     
     func reset () {
-        room = RoomModel()
-        squares = Array(repeating: Array(repeatElement(.Empty, count: roomWidth)), count: roomHeight)
-        squares[room.man.y][room.man.x] = .Man
-        squares[room.box.y][room.box.x] = .Box
-        squares[room.win.y][room.win.x] = .Win
-        for block in room.blocks {
-            squares[block.y][block.x] = .Block
-        }
-        
-        printField.text = contentOfPrintField
+        roomViewModel = RoomViewModel()
+        printField.text = roomViewModel.contentOfPrintField
     }
     
     @IBOutlet weak var display: UILabel!
@@ -72,12 +37,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchDirection(_ sender: UIButton) {
-        squares[room.man.y][room.man.x] = .Empty
-        squares[room.box.y][room.box.x] = .Empty
-        room.moveMan(Direction(rawValue: sender.currentTitle!)!)
-        squares[room.man.y][room.man.x] = .Man
-        squares[room.box.y][room.box.x] = .Box
-        printField.text = contentOfPrintField
+        roomViewModel.moveManByArrow(sender.currentTitle!)
+        printField.text = roomViewModel.contentOfPrintField
     }
     
     

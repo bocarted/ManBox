@@ -8,21 +8,10 @@
 
 import Foundation
 
-let roomHeight = 6
-let roomWidth = 6
+let roomHeight = 5
+let roomWidth = 5
 
-enum Direction : String {
-    case Left
-    case Right
-    case Up
-    case Down
-}
-
-enum DirectionToPoint : Point {
-    
-}
-
-struct Point : RawRepresentable {
+struct Point {
     
     var x : Int {
         didSet {
@@ -49,33 +38,33 @@ struct Point : RawRepresentable {
         return !(p1 != p2)
     }
     
-    static func + (p1: Point, p2: Point) -> Point {
-        return Point(x: p1.x + p2.x, y: p1.y + p2.y)
-    }
-    
 }
 
+struct Vector {
+    var x: Int
+    var y: Int
+}
 
 class RoomModel {
     
     var manWin = false
-
-    var man : Point {
+    
+    var manPosition : Point {
         didSet {
             for block in blocks {
-                if block == man {
-                    man = oldValue
+                if block == manPosition {
+                    manPosition = oldValue
                     break
                 }
             }
         }
     }
     
-    var box : Point {
+    var boxPosition : Point {
         didSet {
             for block in blocks {
-                if block == box {
-                    box = oldValue
+                if block == boxPosition {
+                    boxPosition = oldValue
                     break
                 }
             }
@@ -87,63 +76,45 @@ class RoomModel {
     var blocks = [Point]()
     
     init() {
-        self.man = Point(x: 0, y: 0)
-        self.box = Point(x: 3, y: 3)
-        self.blocks.append(Point(x: 2, y: 2))
+
+        self.boxPosition = Point(x: 2, y: 3)
+        self.manPosition = Point(x: 0, y: 0)
+        self.blocks.append(Point(x: 2, y: 1))
         self.blocks.append(Point(x: 4, y: 3))
         self.blocks.append(Point(x: 1, y: 0))
-        self.blocks.append(Point(x: 4, y: 5))
         self.blocks.append(Point(x: 1, y: 3))
     }
     
-    func moveBox (_ direction: Direction) -> Bool {
-        let oldPoint = box
-        
-        switch direction {
-        case .Up:
-            box.y -= 1
-        case .Down:
-            box.y += 1
-        case .Left:
-            box.x -= 1
-        case .Right:
-            box.x += 1
-        }
-        
-        if box == win {
-            manWin = true
-        }
-        
-        return oldPoint != box
-        
-    }
+
+
     
-    func moveMan (_ direction: Direction) {
+
+    
+    func moveManAtVector (_ vector: Vector) {
         
-        let oldPosition = man
+        let oldManPosition = manPosition
+        manPosition = moveObjectAtPosition(manPosition, byVector: vector)
         
-        switch direction {
-        case .Up:
-            man.y -= 1
-        case .Down:
-            man.y += 1
-        case .Left:
-            man.x -= 1
-        case .Right:
-            man.x += 1
-        }
-        
-        if man == box {
-            if !moveBox(direction) {
-                man = oldPosition
+        if manPosition == boxPosition {
+            let oldBoxPosition = boxPosition
+            boxPosition = moveObjectAtPosition(boxPosition, byVector: vector)
+            if boxPosition == oldBoxPosition {
+                manPosition = oldManPosition
             }
         }
-    }
-    
-    func moveManAtPoint (_ newPosition: Point) {
-        let oldPosition = man
-        man = man + newPosition
+            if boxPosition == win {
+                manWin = true
+            }
         
+    }
+        
+
+    
+    func moveObjectAtPosition(_ startPoint: Point, byVector vector: Vector) -> Point {
+        var newPoint = startPoint
+        newPoint.x += vector.x
+        newPoint.y += vector.y
+        return newPoint
     }
     
 }
