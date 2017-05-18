@@ -33,7 +33,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchReset(_ sender: UIButton) {
-        reset()
+        let alert = UIAlertController(title: "Reset", message: "Do you want to start again?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { [unowned self](action: UIAlertAction) -> Void in
+            self.reset()
+        }
+        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        present(alert, animated: true, completion: nil)
+        
     }
     
     @IBAction func touchDirection(_ sender: UIButton) {
