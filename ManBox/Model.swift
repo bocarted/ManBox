@@ -36,6 +36,12 @@ struct Vector {
     var y: Int
 }
 
+struct Move {
+    let startPoint : Point
+    let vector : Vector
+}
+
+
 class RoomModel {
     
     var manWin : Bool
@@ -57,6 +63,10 @@ class RoomModel {
     
     var blocks : Set<Point>
     
+    var moves = [Move]()
+    
+
+    
     init(withLevel level: Level) {
         
         self.roomWidth = level.roomWidth
@@ -70,21 +80,21 @@ class RoomModel {
     }
     
 
-    func pointIsNotAllowed (_ point: Point) -> Bool {
+    func pointIsValid (_ point: Point) -> Bool {
         
         if (point.x < 0) || (point.x >= roomWidth) {
-            return true
+            return false
         }
         
         if (point.y < 0) || (point.y >= roomHeight) {
-            return true
+            return false
         }
         
         if blocks.contains(point) {
-            return true
+            return false
         }
         
-        return false
+        return true
     }
     
 
@@ -111,10 +121,10 @@ class RoomModel {
         newPoint.x += vector.x
         newPoint.y += vector.y
         
-        if pointIsNotAllowed(newPoint) {
-            return startPoint
-        } else {
+        if pointIsValid(newPoint) {
             return newPoint
+        } else {
+            return startPoint
         }
     }
     
