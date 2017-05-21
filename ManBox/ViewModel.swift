@@ -47,7 +47,8 @@ class RoomViewModel {
     
     
     init() {
-        roomModel = RoomModel(withLevel: level1)
+        //roomModel = RoomModel(withLevel: level1)
+        roomModel = RoomModel(withLevel: level2)
         self.roomHeight = roomModel.roomHeight
         self.roomWidth = roomModel.roomWidth
         squares = Array(repeating: Array(repeatElement(.Empty, count: roomWidth)), count: roomHeight)
@@ -86,5 +87,15 @@ class RoomViewModel {
         squares[roomModel.manPosition.y][roomModel.manPosition.x] = .Man
         squares[roomModel.boxPosition.y][roomModel.boxPosition.x] = .Box
 
+    }
+    
+    func undo() {
+        squares[roomModel.manPosition.y][roomModel.manPosition.x] = .Empty
+        squares[roomModel.boxPosition.y][roomModel.boxPosition.x] = .Empty
+        
+        roomModel.undo()
+        
+        squares[roomModel.manPosition.y][roomModel.manPosition.x] = .Man
+        squares[roomModel.boxPosition.y][roomModel.boxPosition.x] = .Box
     }
 }

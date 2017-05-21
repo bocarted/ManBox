@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNF-Hd-b1K">
@@ -71,21 +71,30 @@
                                     <action selector="touchReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OQz-Ay-OD9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSc-R7-ft3">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Undo"/>
+                                <connections>
+                                    <action selector="touchUndo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NRt-Px-jWt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EZ8-rd-wmy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7DZ-BQ-Agt"/>
-                            <constraint firstItem="dhp-8i-VT2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7L5-fU-qNQ"/>
                             <constraint firstItem="LSX-sI-dNc" firstAttribute="leading" secondItem="EZ8-rd-wmy" secondAttribute="trailing" id="9wZ-3s-PaG"/>
                             <constraint firstItem="vNF-Hd-b1K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Csx-8D-iNa"/>
-                            <constraint firstAttribute="bottom" secondItem="dhp-8i-VT2" secondAttribute="bottom" constant="44" id="HSv-0g-UbS"/>
                             <constraint firstAttribute="bottom" secondItem="EZ8-rd-wmy" secondAttribute="bottom" constant="188" id="LO6-9g-68U"/>
                             <constraint firstItem="MjW-vT-USo" firstAttribute="centerY" secondItem="EZ8-rd-wmy" secondAttribute="top" constant="-15" id="P8z-og-rad"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sSc-R7-ft3" secondAttribute="bottom" constant="44" id="Pcn-S8-kOZ"/>
+                            <constraint firstItem="dhp-8i-VT2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="64" id="QD0-yL-wtl"/>
                             <constraint firstItem="zxQ-Gq-ccY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="WMa-dp-rEy"/>
                             <constraint firstItem="zxQ-Gq-ccY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hqg-SC-68J"/>
                             <constraint firstItem="LSX-sI-dNc" firstAttribute="centerY" secondItem="EZ8-rd-wmy" secondAttribute="top" constant="-15" id="l85-9k-b5W"/>
+                            <constraint firstAttribute="trailing" secondItem="sSc-R7-ft3" secondAttribute="trailing" constant="64" id="lFf-gb-alU"/>
                             <constraint firstItem="EZ8-rd-wmy" firstAttribute="top" secondItem="vNF-Hd-b1K" secondAttribute="bottom" constant="30" id="oye-4c-q3r"/>
                             <constraint firstItem="MjW-vT-USo" firstAttribute="trailing" secondItem="EZ8-rd-wmy" secondAttribute="leading" id="xfD-gX-u9C"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dhp-8i-VT2" secondAttribute="bottom" constant="44" id="xp5-HD-SR3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -94,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.375" y="34.859154929577464"/>
+            <point key="canvasLocation" x="23.199999999999999" y="34.632683658170919"/>
         </scene>
     </scenes>
     <resources>

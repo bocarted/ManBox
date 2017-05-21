@@ -37,8 +37,8 @@ struct Vector {
 }
 
 struct Move {
-    let startPoint : Point
-    let vector : Vector
+    let manPosition : Point
+    let boxPosition : Point
 }
 
 
@@ -63,7 +63,7 @@ class RoomModel {
     
     var blocks : Set<Point>
     
-    var moves = [Move]()
+    var moves : [Move]
     
 
     
@@ -76,6 +76,7 @@ class RoomModel {
         self.blocks = level.blocks
         self.winPosition = level.winPosition
         self.manWin = false
+        self.moves = []
         
     }
     
@@ -102,14 +103,19 @@ class RoomModel {
     func moveManAtVector (_ vector: Vector) {
         
         let oldManPosition = manPosition
+        let oldBoxPosition = boxPosition
+        
         manPosition = moveObjectAtPosition(manPosition, byVector: vector)
         
         if manPosition == boxPosition {
-            let oldBoxPosition = boxPosition
             boxPosition = moveObjectAtPosition(boxPosition, byVector: vector)
             if boxPosition == oldBoxPosition {
                 manPosition = oldManPosition
             }
+        }
+        
+        if manPosition != oldManPosition {
+            moves.append(Move(manPosition: oldManPosition, boxPosition: oldBoxPosition))
         }
         
     }
@@ -125,6 +131,14 @@ class RoomModel {
             return newPoint
         } else {
             return startPoint
+        }
+    }
+    
+    func undo() {
+        if moves.count > 0 {
+            manPosition = moves[moves.count - 1].manPosition
+            boxPosition = moves[moves.count - 1].boxPosition
+            moves.removeLast()
         }
     }
     

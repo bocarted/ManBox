@@ -44,6 +44,10 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
+    @IBAction func touchUndo(_ sender: UIButton) {
+        roomViewModel.undo()
+        printField.text = roomViewModel.contentOfPrintField
+    }
     
     @IBAction func touchDirection(_ sender: UIButton) {
         roomViewModel.moveManByArrow(sender.currentTitle!)
