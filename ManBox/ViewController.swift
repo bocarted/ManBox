@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchReset(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Reset", message: "Do you want to start again?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Restart?", message: "Do you want to restart the game?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .default) { [unowned self](action: UIAlertAction) -> Void in
             self.reset()
         }

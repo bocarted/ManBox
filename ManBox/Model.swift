@@ -8,36 +8,27 @@
 
 import Foundation
 
-let roomHeight = 5
-let roomWidth = 5
 
-struct Point {
+struct Point : Hashable, Equatable {
     
-    var x : Int {
-        didSet {
-            if (x > roomWidth - 1) || (x < 0) {
-                x = oldValue
-            }
-        }
+    var x : Int
+    
+    var y : Int
+    
+// Hashable
+    var hashValue: Int {
+        return Int(String("\(x)\(y)"))!
     }
     
-    var y : Int {
-        didSet {
-            if (y > roomHeight - 1) || (y < 0) {
-                y = oldValue
-            }
-        }
+// Equatable
+    static func == (p1: Point, p2: Point) -> Bool {
+        return (p1.x == p2.x) && (p1.y == p2.y)
     }
-    
     
     static func != (p1: Point, p2: Point) -> Bool {
-        return (p1.x != p2.x) || (p1.y != p2.y)
+        return !(p1 == p2)
     }
-    
-    static func == (p1: Point, p2: Point) -> Bool {
-        return !(p1 != p2)
-    }
-    
+
 }
 
 struct Vector {
@@ -47,46 +38,54 @@ struct Vector {
 
 class RoomModel {
     
-    var manWin = false
+    var manWin : Bool
     
-    var manPosition : Point {
-        didSet {
-            for block in blocks {
-                if block == manPosition {
-                    manPosition = oldValue
-                    break
-                }
-            }
-        }
-    }
+    let roomHeight : Int
+    let roomWidth : Int
+    
+    var manPosition : Point
     
     var boxPosition : Point {
         didSet {
-            for block in blocks {
-                if block == boxPosition {
-                    boxPosition = oldValue
-                    break
-                }
+            if boxPosition == winPosition {
+                manWin = true
             }
         }
     }
     
-    let win = Point(x: roomHeight-1, y: roomWidth-1)
+    let winPosition : Point
     
-    var blocks = [Point]()
+    var blocks : Set<Point>
     
-    init() {
-
-        self.boxPosition = Point(x: 2, y: 3)
-        self.manPosition = Point(x: 0, y: 0)
-        self.blocks.append(Point(x: 2, y: 1))
-        self.blocks.append(Point(x: 4, y: 3))
-        self.blocks.append(Point(x: 1, y: 0))
-        self.blocks.append(Point(x: 1, y: 3))
+    init(withLevel level: Level) {
+        
+        self.roomWidth = level.roomWidth
+        self.roomHeight = level.roomHeight
+        self.manPosition = level.startManPosition
+        self.boxPosition = level.startBoxPosition
+        self.blocks = level.blocks
+        self.winPosition = level.winPosition
+        self.manWin = false
+        
     }
     
 
-
+    func pointIsNotAllowed (_ point: Point) -> Bool {
+        
+        if (point.x < 0) || (point.x >= roomWidth) {
+            return true
+        }
+        
+        if (point.y < 0) || (point.y >= roomHeight) {
+            return true
+        }
+        
+        if blocks.contains(point) {
+            return true
+        }
+        
+        return false
+    }
     
 
     
@@ -102,9 +101,6 @@ class RoomModel {
                 manPosition = oldManPosition
             }
         }
-            if boxPosition == win {
-                manWin = true
-            }
         
     }
         
@@ -114,7 +110,12 @@ class RoomModel {
         var newPoint = startPoint
         newPoint.x += vector.x
         newPoint.y += vector.y
-        return newPoint
+        
+        if pointIsNotAllowed(newPoint) {
+            return startPoint
+        } else {
+            return newPoint
+        }
     }
     
 }

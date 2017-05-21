@@ -24,6 +24,9 @@ class RoomViewModel {
     var roomModel : RoomModel
     var squares : [[Square]]
     
+    let roomHeight : Int
+    let roomWidth : Int
+    
     var contentOfPrintField : String {
         get {
             
@@ -44,14 +47,17 @@ class RoomViewModel {
     
     
     init() {
-        roomModel = RoomModel()
+        roomModel = RoomModel(withLevel: level1)
+        self.roomHeight = roomModel.roomHeight
+        self.roomWidth = roomModel.roomWidth
         squares = Array(repeating: Array(repeatElement(.Empty, count: roomWidth)), count: roomHeight)
         squares[roomModel.manPosition.y][roomModel.manPosition.x] = .Man
         squares[roomModel.boxPosition.y][roomModel.boxPosition.x] = .Box
-        squares[roomModel.win.y][roomModel.win.x] = .Win
+        squares[roomModel.winPosition.y][roomModel.winPosition.x] = .Win
         for block in roomModel.blocks {
             squares[block.y][block.x] = .Block
         }
+        
     }
     
 

@@ -14,6 +14,7 @@
 		277CCC881EC4A518000F2438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277CCC871EC4A518000F2438 /* Assets.xcassets */; };
 		277CCC8B1EC4A518000F2438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277CCC891EC4A518000F2438 /* LaunchScreen.storyboard */; };
 		277CCC941EC4A594000F2438 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CCC931EC4A594000F2438 /* Model.swift */; };
+		27AE5D6E1ED1FAC5006402F6 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE5D6D1ED1FAC5006402F6 /* LevelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		277CCC8A1EC4A518000F2438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		277CCC8C1EC4A518000F2438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		277CCC931EC4A594000F2438 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		27AE5D6D1ED1FAC5006402F6 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				277CCC921EC4A55C000F2438 /* Supporting Files */,
+				27AE5D6D1ED1FAC5006402F6 /* LevelData.swift */,
 				277CCC931EC4A594000F2438 /* Model.swift */,
 				27417A001EC8E095005F0D72 /* ViewModel.swift */,
 				277CCC821EC4A517000F2438 /* ViewController.swift */,
@@ -153,6 +156,7 @@
 			files = (
 				277CCC941EC4A594000F2438 /* Model.swift in Sources */,
 				277CCC831EC4A517000F2438 /* ViewController.swift in Sources */,
+				27AE5D6E1ED1FAC5006402F6 /* LevelData.swift in Sources */,
 				27417A011EC8E095005F0D72 /* ViewModel.swift in Sources */,
 				277CCC811EC4A517000F2438 /* AppDelegate.swift in Sources */,
 			);
