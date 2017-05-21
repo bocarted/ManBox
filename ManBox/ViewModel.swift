@@ -24,6 +24,9 @@ class RoomViewModel {
     var roomModel : RoomModel
     var squares : [[Square]]
     var contentOfDescriptionField : String
+    var contentOfMovesField : String {
+        return "Moves: \(roomModel.moves.count)"
+    }
     
     let roomHeight : Int
     let roomWidth : Int
@@ -41,7 +44,6 @@ class RoomViewModel {
             }
             if roomModel.manWin {
                 line = "👸: I LOVE YOU"
-                contentOfDescriptionField = ""
             }
             return line
         }

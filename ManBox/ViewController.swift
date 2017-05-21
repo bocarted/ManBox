@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         roomViewModel = RoomViewModel()
         printField.text = roomViewModel.contentOfPrintField
         descriptionField.text = roomViewModel.contentOfDescriptionField
+        movesField.text = roomViewModel.contentOfMovesField
     }
     
 
@@ -27,6 +28,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var printField: UILabel!
     
+    
+    @IBOutlet weak var movesField: UILabel!
     
     
     override func viewDidLoad() {
@@ -49,11 +52,13 @@ class ViewController: UIViewController {
     @IBAction func touchUndo(_ sender: UIButton) {
         roomViewModel.undo()
         printField.text = roomViewModel.contentOfPrintField
+        movesField.text = roomViewModel.contentOfMovesField
     }
     
     @IBAction func touchDirection(_ sender: UIButton) {
         roomViewModel.moveManByArrow(sender.currentTitle!)
         printField.text = roomViewModel.contentOfPrintField
+        movesField.text = roomViewModel.contentOfMovesField
     }
     
     
