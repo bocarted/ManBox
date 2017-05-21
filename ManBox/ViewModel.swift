@@ -23,6 +23,7 @@ class RoomViewModel {
     
     var roomModel : RoomModel
     var squares : [[Square]]
+    var contentOfDescriptionField : String
     
     let roomHeight : Int
     let roomWidth : Int
@@ -39,7 +40,8 @@ class RoomViewModel {
                 line += "\n"
             }
             if roomModel.manWin {
-                line = "I LOVE YOU"
+                line = "👸: I LOVE YOU"
+                contentOfDescriptionField = ""
             }
             return line
         }
@@ -48,7 +50,8 @@ class RoomViewModel {
     
     init() {
         //roomModel = RoomModel(withLevel: level1)
-        roomModel = RoomModel(withLevel: level2)
+        roomModel = RoomModel(withLevel: level1)
+        self.contentOfDescriptionField = roomModel.levelDescription
         self.roomHeight = roomModel.roomHeight
         self.roomWidth = roomModel.roomWidth
         squares = Array(repeating: Array(repeatElement(.Empty, count: roomWidth)), count: roomHeight)
@@ -58,6 +61,7 @@ class RoomViewModel {
         for block in roomModel.blocks {
             squares[block.y][block.x] = .Block
         }
+        
         
     }
     

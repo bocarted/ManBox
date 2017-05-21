@@ -61,6 +61,8 @@ class RoomModel {
     
     let winPosition : Point
     
+    let levelDescription: String
+    
     var blocks : Set<Point>
     
     var moves : [Move]
@@ -77,6 +79,7 @@ class RoomModel {
         self.winPosition = level.winPosition
         self.manWin = false
         self.moves = []
+        self.levelDescription = level.levelDescription
         
     }
     

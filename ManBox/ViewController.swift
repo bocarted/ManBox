@@ -19,12 +19,14 @@ class ViewController: UIViewController {
     func reset () {
         roomViewModel = RoomViewModel()
         printField.text = roomViewModel.contentOfPrintField
+        descriptionField.text = roomViewModel.contentOfDescriptionField
     }
     
-    @IBOutlet weak var display: UILabel!
 
+    @IBOutlet weak var descriptionField: UILabel!
     
     @IBOutlet weak var printField: UILabel!
+    
     
     
     override func viewDidLoad() {

@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -78,26 +79,34 @@
                                     <action selector="touchUndo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NRt-Px-jWt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnI-cG-Uun">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EZ8-rd-wmy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7DZ-BQ-Agt"/>
                             <constraint firstItem="LSX-sI-dNc" firstAttribute="leading" secondItem="EZ8-rd-wmy" secondAttribute="trailing" id="9wZ-3s-PaG"/>
                             <constraint firstItem="vNF-Hd-b1K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Csx-8D-iNa"/>
+                            <constraint firstItem="YnI-cG-Uun" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="66" id="DfY-yC-KTp"/>
                             <constraint firstAttribute="bottom" secondItem="EZ8-rd-wmy" secondAttribute="bottom" constant="188" id="LO6-9g-68U"/>
                             <constraint firstItem="MjW-vT-USo" firstAttribute="centerY" secondItem="EZ8-rd-wmy" secondAttribute="top" constant="-15" id="P8z-og-rad"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sSc-R7-ft3" secondAttribute="bottom" constant="44" id="Pcn-S8-kOZ"/>
                             <constraint firstItem="dhp-8i-VT2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="64" id="QD0-yL-wtl"/>
-                            <constraint firstItem="zxQ-Gq-ccY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="WMa-dp-rEy"/>
+                            <constraint firstItem="zxQ-Gq-ccY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="WMa-dp-rEy"/>
                             <constraint firstItem="zxQ-Gq-ccY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hqg-SC-68J"/>
                             <constraint firstItem="LSX-sI-dNc" firstAttribute="centerY" secondItem="EZ8-rd-wmy" secondAttribute="top" constant="-15" id="l85-9k-b5W"/>
                             <constraint firstAttribute="trailing" secondItem="sSc-R7-ft3" secondAttribute="trailing" constant="64" id="lFf-gb-alU"/>
                             <constraint firstItem="EZ8-rd-wmy" firstAttribute="top" secondItem="vNF-Hd-b1K" secondAttribute="bottom" constant="30" id="oye-4c-q3r"/>
+                            <constraint firstItem="YnI-cG-Uun" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="vUk-N7-LHk"/>
                             <constraint firstItem="MjW-vT-USo" firstAttribute="trailing" secondItem="EZ8-rd-wmy" secondAttribute="leading" id="xfD-gX-u9C"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dhp-8i-VT2" secondAttribute="bottom" constant="44" id="xp5-HD-SR3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionField" destination="YnI-cG-Uun" id="xar-5o-U3f"/>
                         <outlet property="printField" destination="zxQ-Gq-ccY" id="ZJR-yI-l6d"/>
                     </connections>
                 </viewController>
