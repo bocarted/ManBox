@@ -9,11 +9,17 @@
 import Foundation
 
 
-struct Point : Hashable, Equatable {
+struct Position : Hashable, Equatable {
     
     var x : Int
     
     var y : Int
+    
+    init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+    }
+    
     
 // Hashable
     var hashValue: Int {
@@ -21,14 +27,47 @@ struct Point : Hashable, Equatable {
     }
     
 // Equatable
-    static func == (p1: Point, p2: Point) -> Bool {
+    static func == (p1: Position, p2: Position) -> Bool {
         return (p1.x == p2.x) && (p1.y == p2.y)
     }
     
-    static func != (p1: Point, p2: Point) -> Bool {
+    static func != (p1: Position, p2: Position) -> Bool {
         return !(p1 == p2)
     }
+// Coding for CoreData
+    var codedPosition : CodingPosition {
+        return CodingPosition(position: self)
+    }
+    
+    init(withCodedPosition codingPosition : CodingPosition) {
+        self.x = codingPosition.x
+        self.y = codingPosition.y
+    }
+    
 
+
+}
+
+class CodingPosition : NSObject, NSCoding {
+    
+    var x : Int
+    var y : Int
+    
+    init(position: Position) {
+        self.x = position.x
+        self.y = position.y
+    }
+    
+    convenience required init?(coder aDecoder: NSCoder) {
+        let x = aDecoder.decodeInteger(forKey: "x")
+        let y = aDecoder.decodeInteger(forKey: "y")
+        self.init(position: Position(x: x, y: y))
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(x, forKey: "x")
+        aCoder.encode(y, forKey: "y")
+    }
 }
 
 struct Vector {
@@ -37,8 +76,8 @@ struct Vector {
 }
 
 struct Move {
-    let manPosition : Point
-    let boxPosition : Point
+    let manPosition : Position
+    let boxPosition : Position
 }
 
 
@@ -49,9 +88,9 @@ class RoomModel {
     let roomHeight : Int
     let roomWidth : Int
     
-    var manPosition : Point
+    var manPosition : Position
     
-    var boxPosition : Point {
+    var boxPosition : Position {
         didSet {
             if boxPosition == winPosition {
                 manWin = true
@@ -59,17 +98,17 @@ class RoomModel {
         }
     }
     
-    let winPosition : Point
+    let winPosition : Position
     
     let levelDescription: String
     
-    var blocks : Set<Point>
+    var blocks : Set<Position>
     
     var moves : [Move]
     
 
     
-    init(withLevel level: Level) {
+    init(withLevel level: LevelStruct) {
         
         self.roomWidth = level.roomWidth
         self.roomHeight = level.roomHeight
@@ -84,7 +123,7 @@ class RoomModel {
     }
     
 
-    func pointIsValid (_ point: Point) -> Bool {
+    func pointIsValid (_ point: Position) -> Bool {
         
         if (point.x < 0) || (point.x >= roomWidth) {
             return false
@@ -125,7 +164,7 @@ class RoomModel {
         
 
     
-    func moveObjectAtPosition(_ startPoint: Point, byVector vector: Vector) -> Point {
+    func moveObjectAtPosition(_ startPoint: Position, byVector vector: Vector) -> Position {
         var newPoint = startPoint
         newPoint.x += vector.x
         newPoint.y += vector.y
