@@ -125,11 +125,6 @@
                                     <action selector="touchUndo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NRt-Px-jWt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnI-cG-Uun">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPY-kl-6Yu">
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -147,21 +142,16 @@
                             <constraint firstItem="MjW-vT-USo" firstAttribute="centerY" secondItem="EZ8-rd-wmy" secondAttribute="top" constant="-15" id="P8z-og-rad"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sSc-R7-ft3" secondAttribute="bottom" constant="44" id="Pcn-S8-kOZ"/>
                             <constraint firstItem="dhp-8i-VT2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="64" id="QD0-yL-wtl"/>
-                            <constraint firstItem="zxQ-Gq-ccY" firstAttribute="top" secondItem="YnI-cG-Uun" secondAttribute="bottom" constant="10" id="WGw-MN-f0l"/>
-                            <constraint firstItem="zxQ-Gq-ccY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="WMa-dp-rEy"/>
+                            <constraint firstItem="zxQ-Gq-ccY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="WMa-dp-rEy"/>
                             <constraint firstItem="zxQ-Gq-ccY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hqg-SC-68J"/>
                             <constraint firstItem="LSX-sI-dNc" firstAttribute="centerY" secondItem="EZ8-rd-wmy" secondAttribute="top" constant="-15" id="l85-9k-b5W"/>
                             <constraint firstAttribute="trailing" secondItem="sSc-R7-ft3" secondAttribute="trailing" constant="64" id="lFf-gb-alU"/>
-                            <constraint firstItem="zxQ-Gq-ccY" firstAttribute="top" secondItem="YnI-cG-Uun" secondAttribute="bottom" constant="10" id="m7f-yX-Iwi"/>
                             <constraint firstItem="EZ8-rd-wmy" firstAttribute="top" secondItem="vNF-Hd-b1K" secondAttribute="bottom" constant="30" id="oye-4c-q3r"/>
-                            <constraint firstItem="YnI-cG-Uun" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="svy-h3-STC"/>
-                            <constraint firstItem="YnI-cG-Uun" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="vUk-N7-LHk"/>
                             <constraint firstItem="MjW-vT-USo" firstAttribute="trailing" secondItem="EZ8-rd-wmy" secondAttribute="leading" id="xfD-gX-u9C"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dhp-8i-VT2" secondAttribute="bottom" constant="44" id="xp5-HD-SR3"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="descriptionField" destination="YnI-cG-Uun" id="xar-5o-U3f"/>
                         <outlet property="movesField" destination="OPY-kl-6Yu" id="tle-Wb-Zew"/>
                         <outlet property="printField" destination="zxQ-Gq-ccY" id="ZJR-yI-l6d"/>
                     </connections>

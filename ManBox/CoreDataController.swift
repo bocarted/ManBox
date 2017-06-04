@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class DataController {
+class CoreDataController {
     
     var managedObjectContext: NSManagedObjectContext {
         let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)

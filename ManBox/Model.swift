@@ -69,6 +69,10 @@ class RoomModel {
     var manWin : Bool
     let roomHeight : Int
     let roomWidth : Int
+    let winPosition : Position
+    let levelDescription: String
+    var blocks : Set<Position>
+    var moves : [Move]
     var manPosition : Position
     var boxPosition : Position {
         didSet {
@@ -77,15 +81,6 @@ class RoomModel {
             }
         }
     }
-    
-    let winPosition : Position
-    
-    let levelDescription: String
-    
-    var blocks : Set<Position>
-    
-    var moves : [Move]
-    
 
     
     init(withLevel level: LevelStruct) {
