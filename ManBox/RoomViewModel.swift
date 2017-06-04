@@ -48,8 +48,8 @@ class RoomViewModel {
     }
     
     
-    init() {
-        roomModel = RoomModel(withLevel: level2)
+    init(withLevel level: Level) {
+        roomModel = RoomModel(withLevel: level)
         self.contentOfDescriptionField = roomModel.levelDescription
         self.roomHeight = roomModel.roomHeight
         self.roomWidth = roomModel.roomWidth

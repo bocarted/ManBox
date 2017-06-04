@@ -48,7 +48,7 @@ class Position : NSObject, NSCoding {
     }
     
     override var hashValue: Int {
-        return String("\(x)\(y)")!.hashValue
+        return String("\(x)\(y)").hashValue
     }
 }
 
@@ -83,13 +83,13 @@ class RoomModel {
     }
 
     
-    init(withLevel level: LevelStruct) {
-        self.roomWidth = level.roomWidth
-        self.roomHeight = level.roomHeight
-        self.manPosition = level.startManPosition
-        self.boxPosition = level.startBoxPosition
-        self.blocks = level.blocks
-        self.winPosition = level.winPosition
+    init(withLevel level: Level) {
+        self.roomWidth = Int(level.roomWidth)
+        self.roomHeight = Int(level.roomHeight)
+        self.manPosition = NSKeyedUnarchiver.unarchiveObject(with: level.startManPosition) as! Position
+        self.boxPosition = NSKeyedUnarchiver.unarchiveObject(with: level.startBoxPosition) as! Position
+        self.winPosition = NSKeyedUnarchiver.unarchiveObject(with: level.winPosition) as! Position
+        self.blocks = NSKeyedUnarchiver.unarchiveObject(with: level.blocks) as! Set<Position>
         self.manWin = false
         self.moves = []
         self.levelDescription = level.levelDescription

@@ -12,6 +12,7 @@ import CoreData
 
 class ViewController: UIViewController {
     var roomViewModel : RoomViewModel!
+    var level : Level!
     @IBOutlet weak var printField: UILabel!
     @IBOutlet weak var movesField: UILabel!
     
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
 
 //MARK: Helpers
     func reset () {
-        roomViewModel = RoomViewModel()
+        roomViewModel = RoomViewModel(withLevel: level)
         updateLabels()
     }
     
