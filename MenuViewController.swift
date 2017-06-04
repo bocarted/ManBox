@@ -17,7 +17,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var selectedLevel : Int16 = 0
     
-    var levels : [Level] = []
+
     
     let context = (UIApplication.shared.delegate as! AppDelegate).dataController.managedObjectContext
     
@@ -26,19 +26,17 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         
-        levels = try! context.fetch(requestAll) as! [Level]
-
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return levels.count
+        return 1
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")! as UITableViewCell
-        cell.textLabel!.text = levels[indexPath.row].levelName
+        cell.textLabel!.text = "Hello"
         return cell
         
     }

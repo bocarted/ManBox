@@ -43,45 +43,5 @@ class DataController {
     }
 }
 
-// CoreData manipulations
-//let context = (UIApplication.shared.delegate as! AppDelegate).dataController.managedObjectContext
-//
-//func getAllLevels() -> [Level] {
-//    let requestAll = NSFetchRequest<NSManagedObject>(entityName: "Level")
-//    let levels = try! context.fetch(requestAll) as! [Level]
-//    return levels
-//}
-//
-//func addLevel(_ i : Int16) {
-//    let level = NSEntityDescription.insertNewObject(forEntityName: "Level", into: context) as! Level
-//    level.levelNumber = i
-//    level.levelName = "Level " + String(i)
-//    let pos = Position(x: Int(i), y: Int(i))
-//    level.startManPosition = NSKeyedArchiver.archivedData(withRootObject: pos.codedPosition)
-//    let a = [[1, 2], [2, 3]]
-//    let aa = NSKeyedArchiver.archivedData(withRootObject: a)
-//    level.blocks = aa
-//}
-//
-//func printAllLevels() {
-//    let levels = getAllLevels()
-//    print(levels.count)
-//    for level in levels {
-//        let cp = NSKeyedUnarchiver.unarchiveObject(with: level.startManPosition) as! CodingPosition
-//        let position = Position(withCodedPosition: cp)
-//        let aa = NSKeyedUnarchiver.unarchiveObject(with: level.blocks) as! [[Int]]
-//        print(level.levelName)
-//        print(position)
-//        print(aa)
-//    }
-//}
-//
-//func deleteAll() {
-//    let levels = getAllLevels()
-//    if levels.count > 0 {
-//        for level in levels {
-//            context.delete(level)
-//        }
-//    }
-//}
+
     

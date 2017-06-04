@@ -9,15 +9,14 @@
 /* Begin PBXBuildFile section */
 		2713DAEB1EDB214D006545FF /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2713DAEA1EDB214D006545FF /* DataController.swift */; };
 		2713DAF51EDB3C6E006545FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2713DAF41EDB3C6E006545FF /* MenuViewController.swift */; };
-		2713DAFD1EDB53BE006545FF /* Level+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2713DAFC1EDB53BE006545FF /* Level+CoreDataProperties.swift */; };
-		27417A011EC8E095005F0D72 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27417A001EC8E095005F0D72 /* ViewModel.swift */; };
+		27417A011EC8E095005F0D72 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27417A001EC8E095005F0D72 /* RoomViewModel.swift */; };
 		277CCC811EC4A517000F2438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CCC801EC4A517000F2438 /* AppDelegate.swift */; };
 		277CCC831EC4A517000F2438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CCC821EC4A517000F2438 /* ViewController.swift */; };
 		277CCC861EC4A518000F2438 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277CCC841EC4A518000F2438 /* Main.storyboard */; };
 		277CCC881EC4A518000F2438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277CCC871EC4A518000F2438 /* Assets.xcassets */; };
 		277CCC8B1EC4A518000F2438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277CCC891EC4A518000F2438 /* LaunchScreen.storyboard */; };
 		277CCC941EC4A594000F2438 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CCC931EC4A594000F2438 /* Model.swift */; };
-		27AE5D6E1ED1FAC5006402F6 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE5D6D1ED1FAC5006402F6 /* LevelData.swift */; };
+		27AE5D6E1ED1FAC5006402F6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE5D6D1ED1FAC5006402F6 /* Level.swift */; };
 		EE326F451ED99ED300323067 /* LevelCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE326F431ED99ED300323067 /* LevelCoreData.xcdatamodeld */; };
 		EE326F4A1ED9A66200323067 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE326F491ED9A66200323067 /* CoreData.framework */; };
 /* End PBXBuildFile section */
@@ -25,8 +24,7 @@
 /* Begin PBXFileReference section */
 		2713DAEA1EDB214D006545FF /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = ManBox/DataController.swift; sourceTree = "<group>"; };
 		2713DAF41EDB3C6E006545FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		2713DAFC1EDB53BE006545FF /* Level+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		27417A001EC8E095005F0D72 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewModel.swift; path = ManBox/ViewModel.swift; sourceTree = "<group>"; };
+		27417A001EC8E095005F0D72 /* RoomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoomViewModel.swift; path = ManBox/RoomViewModel.swift; sourceTree = "<group>"; };
 		277CCC7D1EC4A517000F2438 /* ManBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		277CCC801EC4A517000F2438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		277CCC821EC4A517000F2438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ManBox/ViewController.swift; sourceTree = "<group>"; };
@@ -35,7 +33,7 @@
 		277CCC8A1EC4A518000F2438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		277CCC8C1EC4A518000F2438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		277CCC931EC4A594000F2438 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = ManBox/Model.swift; sourceTree = "<group>"; };
-		27AE5D6D1ED1FAC5006402F6 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelData.swift; path = ManBox/LevelData.swift; sourceTree = "<group>"; };
+		27AE5D6D1ED1FAC5006402F6 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Level.swift; path = ManBox/Level.swift; sourceTree = "<group>"; };
 		EE326F441ED99ED300323067 /* LevelCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LevelCoreData.xcdatamodel; sourceTree = "<group>"; };
 		EE326F491ED9A66200323067 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -56,7 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				2713DAEA1EDB214D006545FF /* DataController.swift */,
-				27AE5D6D1ED1FAC5006402F6 /* LevelData.swift */,
+				27AE5D6D1ED1FAC5006402F6 /* Level.swift */,
 				EE326F431ED99ED300323067 /* LevelCoreData.xcdatamodeld */,
 			);
 			name = LevelData;
@@ -67,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				277CCC821EC4A517000F2438 /* ViewController.swift */,
-				27417A001EC8E095005F0D72 /* ViewModel.swift */,
+				27417A001EC8E095005F0D72 /* RoomViewModel.swift */,
 				277CCC931EC4A594000F2438 /* Model.swift */,
 			);
 			name = LevelView;
@@ -77,7 +75,6 @@
 		277CCC741EC4A517000F2438 = {
 			isa = PBXGroup;
 			children = (
-				2713DAFC1EDB53BE006545FF /* Level+CoreDataProperties.swift */,
 				2713DAF41EDB3C6E006545FF /* MenuViewController.swift */,
 				277CCC7F1EC4A517000F2438 /* ManBox */,
 				277CCC7E1EC4A517000F2438 /* Products */,
@@ -199,11 +196,10 @@
 				277CCC941EC4A594000F2438 /* Model.swift in Sources */,
 				EE326F451ED99ED300323067 /* LevelCoreData.xcdatamodeld in Sources */,
 				277CCC831EC4A517000F2438 /* ViewController.swift in Sources */,
-				27AE5D6E1ED1FAC5006402F6 /* LevelData.swift in Sources */,
+				27AE5D6E1ED1FAC5006402F6 /* Level.swift in Sources */,
 				2713DAEB1EDB214D006545FF /* DataController.swift in Sources */,
-				27417A011EC8E095005F0D72 /* ViewModel.swift in Sources */,
+				27417A011EC8E095005F0D72 /* RoomViewModel.swift in Sources */,
 				277CCC811EC4A517000F2438 /* AppDelegate.swift in Sources */,
-				2713DAFD1EDB53BE006545FF /* Level+CoreDataProperties.swift in Sources */,
 				2713DAF51EDB3C6E006545FF /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

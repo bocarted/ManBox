@@ -33,9 +33,7 @@ class RoomViewModel {
     
     var contentOfPrintField : String {
         get {
-            
             var line : String = ""
-            
             for i in 0...roomHeight - 1 {
                 for j in 0...roomWidth - 1 {
                     line += squares[i][j].rawValue
@@ -51,8 +49,7 @@ class RoomViewModel {
     
     
     init() {
-        //roomModel = RoomModel(withLevel: level1)
-        roomModel = RoomModel(withLevel: level1)
+        roomModel = RoomModel(withLevel: level2)
         self.contentOfDescriptionField = roomModel.levelDescription
         self.roomHeight = roomModel.roomHeight
         self.roomWidth = roomModel.roomWidth

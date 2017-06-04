@@ -9,10 +9,9 @@
 import Foundation
 
 
-struct Position : Hashable, Equatable {
+class Position : NSObject, NSCoding {
     
     var x : Int
-    
     var y : Int
     
     init(x: Int, y: Int) {
@@ -20,13 +19,17 @@ struct Position : Hashable, Equatable {
         self.y = y
     }
     
-    
-// Hashable
-    var hashValue: Int {
-        return Int(String("\(x)\(y)"))!
+    convenience required init?(coder aDecoder: NSCoder) {
+        let x = aDecoder.decodeInteger(forKey: "x")
+        let y = aDecoder.decodeInteger(forKey: "y")
+        self.init(x: x, y: y)
     }
     
-// Equatable
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(x, forKey: "x")
+        aCoder.encode(y, forKey: "y")
+    }
+
     static func == (p1: Position, p2: Position) -> Bool {
         return (p1.x == p2.x) && (p1.y == p2.y)
     }
@@ -34,41 +37,21 @@ struct Position : Hashable, Equatable {
     static func != (p1: Position, p2: Position) -> Bool {
         return !(p1 == p2)
     }
-// Coding for CoreData
-    var codedPosition : CodingPosition {
-        return CodingPosition(position: self)
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if object is Position {
+            let p = object as! Position
+            return self == p
+        } else {
+            return false
+        }
     }
     
-    init(withCodedPosition codingPosition : CodingPosition) {
-        self.x = codingPosition.x
-        self.y = codingPosition.y
-    }
-    
-
-
-}
-
-class CodingPosition : NSObject, NSCoding {
-    
-    var x : Int
-    var y : Int
-    
-    init(position: Position) {
-        self.x = position.x
-        self.y = position.y
-    }
-    
-    convenience required init?(coder aDecoder: NSCoder) {
-        let x = aDecoder.decodeInteger(forKey: "x")
-        let y = aDecoder.decodeInteger(forKey: "y")
-        self.init(position: Position(x: x, y: y))
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(x, forKey: "x")
-        aCoder.encode(y, forKey: "y")
+    override var hashValue: Int {
+        return String("\(x)\(y)")!.hashValue
     }
 }
+
 
 struct Vector {
     var x: Int
@@ -84,12 +67,9 @@ struct Move {
 class RoomModel {
     
     var manWin : Bool
-    
     let roomHeight : Int
     let roomWidth : Int
-    
     var manPosition : Position
-    
     var boxPosition : Position {
         didSet {
             if boxPosition == winPosition {
@@ -109,7 +89,6 @@ class RoomModel {
 
     
     init(withLevel level: LevelStruct) {
-        
         self.roomWidth = level.roomWidth
         self.roomHeight = level.roomHeight
         self.manPosition = level.startManPosition
@@ -119,7 +98,6 @@ class RoomModel {
         self.manWin = false
         self.moves = []
         self.levelDescription = level.levelDescription
-        
     }
     
 
@@ -164,15 +142,13 @@ class RoomModel {
         
 
     
-    func moveObjectAtPosition(_ startPoint: Position, byVector vector: Vector) -> Position {
-        var newPoint = startPoint
-        newPoint.x += vector.x
-        newPoint.y += vector.y
-        
-        if pointIsValid(newPoint) {
-            return newPoint
+    func moveObjectAtPosition(_ startPosition: Position, byVector vector: Vector) -> Position {
+        let newPosition = Position(x: startPosition.x + vector.x, y: startPosition.y + vector.y)
+
+        if pointIsValid(newPosition) {
+            return newPosition
         } else {
-            return startPoint
+            return startPosition
         }
     }
     

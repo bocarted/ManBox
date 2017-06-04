@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G1421" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Level" representedClassName=".Level" syncable="YES">
+    <entity name="LevelData" representedClassName=".Level" syncable="YES">
+        <attribute name="blocks" attributeType="Binary" syncable="YES"/>
+        <attribute name="levelDescription" attributeType="String" syncable="YES"/>
         <attribute name="levelName" attributeType="String" syncable="YES"/>
-        <attribute name="levelNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="startManPosition" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="levelNumber" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="roomHeight" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="roomWidth" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="startBoxPosition" attributeType="Binary" syncable="YES"/>
+        <attribute name="startManPosition" attributeType="Binary" syncable="YES"/>
+        <attribute name="winPosition" attributeType="Binary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Level" positionX="-54" positionY="-9" width="128" height="88"/>
+        <element name="LevelData" positionX="-54" positionY="-9" width="128" height="180"/>
     </elements>
 </model>
