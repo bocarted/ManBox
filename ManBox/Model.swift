@@ -10,7 +10,6 @@ import Foundation
 
 
 final class Position : NSObject, NSCoding {
-    
     var x : Int
     var y : Int
     
@@ -35,9 +34,21 @@ final class Position : NSObject, NSCoding {
         return (p1.x == p2.x)&&(p1.y == p2.y)
     }
     
+    override func isEqual(_ object: Any?) -> Bool {
+        if object is Position {
+            let obj = object as! Position
+            return self == obj
+        } else {
+            return false
+        }
+    }
 
     override var hashValue: Int {
         return (x*10 + y)
+    }
+    
+    override var hash: Int {
+        return hashValue
     }
 
 
@@ -92,17 +103,12 @@ class RoomModel {
         if (point.x < 0) || (point.x >= roomWidth) {
             return false
         }
-        
         if (point.y < 0) || (point.y >= roomHeight) {
             return false
         }
-        
-        for block in blocks {
-            if block == point {
-                return false
-            }
+        if blocks.contains(point) {
+            return false
         }
-        
         return true
     }
     
