@@ -45,7 +45,7 @@ class LevelDataController {
     func addLevel2() -> Level {
         let level = NSEntityDescription.insertNewObject(forEntityName: "Level", into: context) as! Level
         var blocks = Set<Position>()
-        blocks.insert(Position(x: 2, y: 1))
+        blocks.insert(Position(x: 1, y: 1))
         blocks.insert(Position(x: 4, y: 3))
         blocks.insert(Position(x: 1, y: 0))
         blocks.insert(Position(x: 1, y: 3))
@@ -74,7 +74,7 @@ class LevelDataController {
         level.levelDescription = "👸: Honey, bring me 💍!\n" + "😍: I'm on my way!"
         level.levelNumber = 2
         level.levelName = "Level 3"
-        level.roomHeight = 4
+        level.roomHeight = 6
         level.roomWidth = 4
         let startManPosition = Position(x: 0, y: 0)
         level.startManPosition = NSKeyedArchiver.archivedData(withRootObject: startManPosition)
@@ -97,7 +97,7 @@ class LevelDataController {
         level.levelNumber = 3
         level.levelName = "Level 4"
         level.roomHeight = 5
-        level.roomWidth = 5
+        level.roomWidth = 7
         let startManPosition = Position(x: 0, y: 0)
         level.startManPosition = NSKeyedArchiver.archivedData(withRootObject: startManPosition)
         let startBoxPosition = Position(x: 2, y: 3)

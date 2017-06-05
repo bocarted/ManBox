@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Position : NSObject, NSCoding {
+final class Position : NSObject, NSCoding {
     
     var x : Int
     var y : Int
@@ -19,10 +19,11 @@ class Position : NSObject, NSCoding {
         self.y = y
     }
     
-    convenience required init?(coder aDecoder: NSCoder) {
+    init(coder aDecoder: NSCoder) {
         let x = aDecoder.decodeInteger(forKey: "x")
         let y = aDecoder.decodeInteger(forKey: "y")
-        self.init(x: x, y: y)
+        self.x = x
+        self.y = y
     }
     
     func encode(with aCoder: NSCoder) {
@@ -31,25 +32,15 @@ class Position : NSObject, NSCoding {
     }
 
     static func == (p1: Position, p2: Position) -> Bool {
-        return (p1.x == p2.x) && (p1.y == p2.y)
+        return (p1.x == p2.x)&&(p1.y == p2.y)
     }
     
-    static func != (p1: Position, p2: Position) -> Bool {
-        return !(p1 == p2)
-    }
-    
-    override func isEqual(_ object: Any?) -> Bool {
-        if object is Position {
-            let p = object as! Position
-            return self == p
-        } else {
-            return false
-        }
-    }
-    
+
     override var hashValue: Int {
-        return String("\(x)\(y)").hashValue
+        return (x*10 + y)
     }
+
+
 }
 
 
@@ -58,7 +49,7 @@ struct Vector {
     var y: Int
 }
 
-struct Move {
+ struct Move {
     let manPosition : Position
     let boxPosition : Position
 }
@@ -106,8 +97,10 @@ class RoomModel {
             return false
         }
         
-        if blocks.contains(point) {
-            return false
+        for block in blocks {
+            if block == point {
+                return false
+            }
         }
         
         return true
