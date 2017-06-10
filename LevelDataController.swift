@@ -74,13 +74,13 @@ class LevelDataController {
         level.levelDescription = "👸: Honey, bring me 💍!\n" + "😍: I'm on my way!"
         level.levelNumber = 2
         level.levelName = "Level 3"
-        level.roomHeight = 6
+        level.roomHeight = 4
         level.roomWidth = 4
         let startManPosition = Position(x: 0, y: 0)
         level.startManPosition = NSKeyedArchiver.archivedData(withRootObject: startManPosition)
         let startBoxPosition = Position(x: 1, y: 2)
         level.startBoxPosition = NSKeyedArchiver.archivedData(withRootObject: startBoxPosition)
-        let winPosition = Position(x: 3, y: 3)
+        let winPosition = Position(x: 3, y: 0)
         level.winPosition = NSKeyedArchiver.archivedData(withRootObject: winPosition)
         try! context.save()
         return level
