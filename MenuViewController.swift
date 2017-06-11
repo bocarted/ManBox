@@ -8,11 +8,11 @@
 import UIKit
 import CoreData
 
-class MenuViewController: UIViewController, UITableViewDataSource {
+class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     var menuModel : MenuModel!
     var cellTitles = [String]()
-
+    var cellSubtitles = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +21,10 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         menuModel = MenuModel()
         cellTitles =  menuModel.getCellTitles()
+        cellSubtitles = menuModel.getCellSubtitles()
     }
-
+    
+    //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellTitles.count
     }
@@ -35,7 +37,13 @@ class MenuViewController: UIViewController, UITableViewDataSource {
             cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
         }
         cell.textLabel?.text = cellTitles[indexPath.row]
+        cell.detailTextLabel?.text = cellSubtitles[indexPath.row]
         return cell
+    }
+    
+    //MARK: UITableViewDelegate
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
 
     //MARK: Navigation

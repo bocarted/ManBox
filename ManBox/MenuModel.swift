@@ -24,6 +24,15 @@ class MenuModel {
         return cellTitles
     }
     
+    func getCellSubtitles() -> [String] {
+        var cellSubtitles = [String]()
+        let levels : [Level] = getLevelsFromCoreData()
+        for level in levels {
+            cellSubtitles.append(level.levelDescription)
+        }
+        return cellSubtitles
+    }
+    
     func getLevelsFromCoreData() -> [Level] {
         var levels = try! context.fetch(requestLevels())
         if levels.count == 0 {
