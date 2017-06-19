@@ -64,13 +64,13 @@ struct Vector {
     var y: Int
 }
 
- struct Move {
-    let manPosition : Position
-    let boxPosition : Position
-}
 
 
 class RoomModel {
+    struct Move {
+        let manPosition : Position
+        let boxPosition : Position
+    }
     
     var manWin : Bool
     let roomHeight : Int

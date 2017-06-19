@@ -23,7 +23,21 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        let swipeLeftGestoreRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
+        swipeLeftGestoreRecognizer.direction = .left
+        view.addGestureRecognizer(swipeLeftGestoreRecognizer)
+        
+        let swipeRightGestoreRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight))
+        swipeRightGestoreRecognizer.direction = .right
+        view.addGestureRecognizer(swipeRightGestoreRecognizer)
+        
+        let swipeUpGestoreRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeUp))
+        swipeUpGestoreRecognizer.direction = .up
+        view.addGestureRecognizer(swipeUpGestoreRecognizer)
+        
+        let swipeDownGestoreRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeDown))
+        swipeDownGestoreRecognizer.direction = .down
+        view.addGestureRecognizer(swipeDownGestoreRecognizer)
     }
 
 //MARK: Helpers
@@ -58,6 +72,28 @@ class ViewController: UIViewController {
         roomViewModel.moveManByArrow(sender.currentTitle!)
         updateLabels()
     }
+    
+    //MARK: Gestore Swipe
+    func swipeLeft() {
+        roomViewModel.moveManByArrow("Left")
+        updateLabels()
+    }
+    
+    func swipeRight() {
+        roomViewModel.moveManByArrow("Right")
+        updateLabels()
+    }
+    
+    func swipeUp() {
+        roomViewModel.moveManByArrow("Up")
+        updateLabels()
+    }
+    
+    func swipeDown() {
+        roomViewModel.moveManByArrow("Down")
+        updateLabels()
+    }
+
     
 
 }
