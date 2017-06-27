@@ -27,43 +27,38 @@ class LevelDataController {
         blocks.insert(Position(x: 1, y: 0))
         blocks.insert(Position(x: 2, y: 1))
         blocks.insert(Position(x: 2, y: 2))
-        level.blocks = NSKeyedArchiver.archivedData(withRootObject: blocks)
+        level.blocks = PositionSerializer.serializeSetOfPositions(blocks)
         level.levelDescription = "👸: Honey, bring me 💍!"
         level.levelNumber = 0
         level.levelName = "Level 1"
         level.roomHeight = 4
         level.roomWidth = 4
-        let startManPosition = Position(x: 0, y: 0)
-        level.startManPosition = NSKeyedArchiver.archivedData(withRootObject: startManPosition)
-        let startBoxPosition = Position(x: 1, y: 2)
-        level.startBoxPosition = NSKeyedArchiver.archivedData(withRootObject: startBoxPosition)
-        let winPosition = Position(x: 3, y: 3)
-        level.winPosition = NSKeyedArchiver.archivedData(withRootObject: winPosition)
+        level.startManPosition = PositionSerializer.serializePosition(Position(x: 0, y: 0))
+        level.startBoxPosition = PositionSerializer.serializePosition(Position(x: 1, y: 2))
+        level.winPosition = PositionSerializer.serializePosition(Position(x: 3, y: 3))
         try! context.save()
         return level
     }
+    
     func addLevel2() -> Level {
         let level = NSEntityDescription.insertNewObject(forEntityName: "Level", into: context) as! Level
         var blocks = Set<Position>()
-        blocks.insert(Position(x: 1, y: 1))
-        blocks.insert(Position(x: 4, y: 3))
         blocks.insert(Position(x: 1, y: 0))
-        blocks.insert(Position(x: 1, y: 3))
-        level.blocks = NSKeyedArchiver.archivedData(withRootObject: blocks)
+        blocks.insert(Position(x: 2, y: 1))
+        blocks.insert(Position(x: 2, y: 2))
+        level.blocks = PositionSerializer.serializeSetOfPositions(blocks)
         level.levelDescription = "👸: Honey, bring me 💍!"
         level.levelNumber = 1
         level.levelName = "Level 2"
         level.roomHeight = 5
-        level.roomWidth = 5
-        let startManPosition = Position(x: 0, y: 0)
-        level.startManPosition = NSKeyedArchiver.archivedData(withRootObject: startManPosition)
-        let startBoxPosition = Position(x: 2, y: 3)
-        level.startBoxPosition = NSKeyedArchiver.archivedData(withRootObject: startBoxPosition)
-        let winPosition = Position(x: 4, y: 4)
-        level.winPosition = NSKeyedArchiver.archivedData(withRootObject: winPosition)
+        level.roomWidth = 6
+        level.startManPosition = PositionSerializer.serializePosition(Position(x: 0, y: 0))
+        level.startBoxPosition = PositionSerializer.serializePosition(Position(x: 1, y: 2))
+        level.winPosition = PositionSerializer.serializePosition(Position(x: 4, y: 3))
         try! context.save()
         return level
     }
+    
 //    func addLevel3() -> Level {
 //        let level = NSEntityDescription.insertNewObject(forEntityName: "Level", into: context) as! Level
 //        var blocks = Set<Position>()

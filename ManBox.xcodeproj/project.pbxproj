@@ -22,6 +22,7 @@
 		277CCC941EC4A594000F2438 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CCC931EC4A594000F2438 /* Model.swift */; };
 		EE326F451ED99ED300323067 /* LevelCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE326F431ED99ED300323067 /* LevelCoreData.xcdatamodeld */; };
 		EE326F4A1ED9A66200323067 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE326F491ED9A66200323067 /* CoreData.framework */; };
+		EEAC29551F02EEEC007B8693 /* PositionSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAC29541F02EEEC007B8693 /* PositionSerializer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		277CCC931EC4A594000F2438 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = ManBox/Model.swift; sourceTree = "<group>"; };
 		EE326F441ED99ED300323067 /* LevelCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LevelCoreData.xcdatamodel; sourceTree = "<group>"; };
 		EE326F491ED9A66200323067 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EEAC29541F02EEEC007B8693 /* PositionSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionSerializer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2713DAF01EDB3A60006545FF /* LevelData */ = {
+		2713DAF01EDB3A60006545FF /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				2762F6891EE4912F006C2A56 /* LevelData+CoreDataClass.swift */,
 				2762F68A1EE4912F006C2A56 /* LevelData+CoreDataProperties.swift */,
 				EE326F431ED99ED300323067 /* LevelCoreData.xcdatamodeld */,
 				2762F68D1EE49884006C2A56 /* LevelDataController.swift */,
+				EEAC29541F02EEEC007B8693 /* PositionSerializer.swift */,
 			);
-			name = LevelData;
+			name = CoreData;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -110,7 +113,7 @@
 			children = (
 				277CCC841EC4A518000F2438 /* Main.storyboard */,
 				2762F6861EE48E26006C2A56 /* MenuView */,
-				2713DAF01EDB3A60006545FF /* LevelData */,
+				2713DAF01EDB3A60006545FF /* CoreData */,
 				2713DAF31EDB3B30006545FF /* LevelView */,
 				277CCC921EC4A55C000F2438 /* Supporting Files */,
 			);
@@ -212,6 +215,7 @@
 			files = (
 				2762F68B1EE4912F006C2A56 /* LevelData+CoreDataClass.swift in Sources */,
 				277CCC941EC4A594000F2438 /* Model.swift in Sources */,
+				EEAC29551F02EEEC007B8693 /* PositionSerializer.swift in Sources */,
 				2762F68E1EE49884006C2A56 /* LevelDataController.swift in Sources */,
 				EE326F451ED99ED300323067 /* LevelCoreData.xcdatamodeld in Sources */,
 				2762F68C1EE4912F006C2A56 /* LevelData+CoreDataProperties.swift in Sources */,

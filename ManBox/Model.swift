@@ -12,46 +12,21 @@ import Foundation
 struct Position {
     var x : Int
     var y : Int
-
 }
 
 extension Position: Equatable {
     static func == (p1: Position, p2: Position) -> Bool {
-        return (p1.x == p2.x)&&(p1.y == p2.y)
+        return p1.hashValue == p2.hashValue
     }
     
-    //    override func isEqual(_ object: Any?) -> Bool {
-    //        if object is Position {
-    //            let obj = object as! Position
-    //            return self == obj
-    //        } else {
-    //            return false
-    //        }
-    //    }
+    static func != (p1: Position, p2: Position) -> Bool {
+        return !(p1 == p2)
+    }
 }
-
-//extension Position : NSCoding {
-//    
-//    convenience init(coder aDecoder: NSCoder) {
-//        let x = aDecoder.decodeInteger(forKey: "x")
-//        let y = aDecoder.decodeInteger(forKey: "y")
-//        self.init(x: x, y: y)
-//    }
-//    
-//    func encode(with aCoder: NSCoder) {
-//        aCoder.encode(x, forKey: "x")
-//        aCoder.encode(y, forKey: "y")
-//    }
-//}
-
 
 extension Position: Hashable {
     var hashValue: Int {
-        return Int("\(self.x)\(self.y)")!
-    }
-    
-    var hash: Int {
-        return hashValue
+        return String("\(x)\(y)")!.hashValue
     }
 }
 
@@ -89,10 +64,10 @@ class RoomModel {
     init(withLevel level: Level) {
         self.roomWidth = Int(level.roomWidth)
         self.roomHeight = Int(level.roomHeight)
-        self.manPosition = NSKeyedUnarchiver.unarchiveObject(with: level.startManPosition) as! Position
-        self.boxPosition = NSKeyedUnarchiver.unarchiveObject(with: level.startBoxPosition) as! Position
-        self.winPosition = NSKeyedUnarchiver.unarchiveObject(with: level.winPosition) as! Position
-        self.blocks = NSKeyedUnarchiver.unarchiveObject(with: level.blocks) as! Set<Position>
+        self.manPosition = PositionSerializer.deserializePosition(data: level.startManPosition)!
+        self.boxPosition = PositionSerializer.deserializePosition(data: level.startBoxPosition)!
+        self.winPosition = PositionSerializer.deserializePosition(data: level.winPosition)!
+        self.blocks = PositionSerializer.deserializeSetOfPositions(data: level.blocks)!
         self.manWin = false
         self.moves = []
         self.levelDescription = level.levelDescription
@@ -150,6 +125,22 @@ class RoomModel {
             manPosition = moves[moves.count - 1].manPosition
             boxPosition = moves[moves.count - 1].boxPosition
             moves.removeLast()
+        }
+    }
+}
+
+//for future improvments
+class MovingObject {
+    private var position: Position
+    
+    init(position: Position) {
+        self.position = position
+    }
+    
+    func moveByVector(_ vector : Vector, newPositionValidation: (Position) -> Bool) {
+        let newPosition = Position(x: self.position.x + vector.x, y: self.position.y + vector.y)
+        if newPositionValidation(newPosition) {
+            self.position = newPosition
         }
     }
 }
