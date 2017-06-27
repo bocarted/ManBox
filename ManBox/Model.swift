@@ -9,51 +9,48 @@
 import Foundation
 
 
-final class Position : NSObject {
+struct Position {
     var x : Int
     var y : Int
-    
-    init(x: Int, y: Int) {
-        self.x = x
-        self.y = y
-    }
+
 }
 
-extension Position : NSCoding {
-    
-    convenience init(coder aDecoder: NSCoder) {
-        let x = aDecoder.decodeInteger(forKey: "x")
-        let y = aDecoder.decodeInteger(forKey: "y")
-        self.init(x: x, y: y)
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(x, forKey: "x")
-        aCoder.encode(y, forKey: "y")
-    }
-}
-
-extension Position {
+extension Position: Equatable {
     static func == (p1: Position, p2: Position) -> Bool {
         return (p1.x == p2.x)&&(p1.y == p2.y)
     }
     
-    override func isEqual(_ object: Any?) -> Bool {
-        if object is Position {
-            let obj = object as! Position
-            return self == obj
-        } else {
-            return false
-        }
-    }
+    //    override func isEqual(_ object: Any?) -> Bool {
+    //        if object is Position {
+    //            let obj = object as! Position
+    //            return self == obj
+    //        } else {
+    //            return false
+    //        }
+    //    }
 }
 
-extension Position {
-    override var hashValue: Int {
+//extension Position : NSCoding {
+//    
+//    convenience init(coder aDecoder: NSCoder) {
+//        let x = aDecoder.decodeInteger(forKey: "x")
+//        let y = aDecoder.decodeInteger(forKey: "y")
+//        self.init(x: x, y: y)
+//    }
+//    
+//    func encode(with aCoder: NSCoder) {
+//        aCoder.encode(x, forKey: "x")
+//        aCoder.encode(y, forKey: "y")
+//    }
+//}
+
+
+extension Position: Hashable {
+    var hashValue: Int {
         return Int("\(self.x)\(self.y)")!
     }
     
-    override var hash: Int {
+    var hash: Int {
         return hashValue
     }
 }
@@ -135,7 +132,7 @@ class RoomModel {
         }
     }
     
-    func positionIsValid (_ point: Position) -> Bool {
+    private func positionIsValid (_ point: Position) -> Bool {
         if (point.x < 0) || (point.x >= roomWidth) {
             return false
         }
@@ -155,7 +152,7 @@ class RoomModel {
             moves.removeLast()
         }
     }
-    
 }
+
 
 

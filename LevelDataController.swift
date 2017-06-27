@@ -16,8 +16,8 @@ class LevelDataController {
         var levels = [Level]()
         levels.append(addLevel1())
         levels.append(addLevel2())
-        levels.append(addLevel3())
-        levels.append(addLevel4())
+//        levels.append(addLevel3())
+//        levels.append(addLevel4())
         
         return levels
     }
@@ -64,48 +64,48 @@ class LevelDataController {
         try! context.save()
         return level
     }
-    func addLevel3() -> Level {
-        let level = NSEntityDescription.insertNewObject(forEntityName: "Level", into: context) as! Level
-        var blocks = Set<Position>()
-        blocks.insert(Position(x: 1, y: 0))
-        blocks.insert(Position(x: 2, y: 2))
-        level.blocks = NSKeyedArchiver.archivedData(withRootObject: blocks)
-        level.levelDescription = "👸: Honey, bring me 💍!"
-        level.levelNumber = 2
-        level.levelName = "Level 3"
-        level.roomHeight = 4
-        level.roomWidth = 4
-        let startManPosition = Position(x: 0, y: 0)
-        level.startManPosition = NSKeyedArchiver.archivedData(withRootObject: startManPosition)
-        let startBoxPosition = Position(x: 1, y: 2)
-        level.startBoxPosition = NSKeyedArchiver.archivedData(withRootObject: startBoxPosition)
-        let winPosition = Position(x: 3, y: 0)
-        level.winPosition = NSKeyedArchiver.archivedData(withRootObject: winPosition)
-        try! context.save()
-        return level
-    }
-    func addLevel4() -> Level {
-        let level = NSEntityDescription.insertNewObject(forEntityName: "Level", into: context) as! Level
-        var blocks = Set<Position>()
-        blocks.insert(Position(x: 2, y: 1))
-        blocks.insert(Position(x: 4, y: 3))
-        blocks.insert(Position(x: 1, y: 0))
-        blocks.insert(Position(x: 1, y: 3))
-        level.blocks = NSKeyedArchiver.archivedData(withRootObject: blocks)
-        level.levelDescription = "👸: Honey, bring me 💍!"
-        level.levelNumber = 3
-        level.levelName = "Level 4"
-        level.roomHeight = 5
-        level.roomWidth = 7
-        let startManPosition = Position(x: 0, y: 0)
-        level.startManPosition = NSKeyedArchiver.archivedData(withRootObject: startManPosition)
-        let startBoxPosition = Position(x: 2, y: 3)
-        level.startBoxPosition = NSKeyedArchiver.archivedData(withRootObject: startBoxPosition)
-        let winPosition = Position(x: 4, y: 4)
-        level.winPosition = NSKeyedArchiver.archivedData(withRootObject: winPosition)
-        try! context.save()
-        return level
-    }
+//    func addLevel3() -> Level {
+//        let level = NSEntityDescription.insertNewObject(forEntityName: "Level", into: context) as! Level
+//        var blocks = Set<Position>()
+//        blocks.insert(Position(x: 1, y: 0))
+//        blocks.insert(Position(x: 2, y: 2))
+//        level.blocks = NSKeyedArchiver.archivedData(withRootObject: blocks)
+//        level.levelDescription = "👸: Honey, bring me 💍!"
+//        level.levelNumber = 2
+//        level.levelName = "Level 3"
+//        level.roomHeight = 4
+//        level.roomWidth = 4
+//        let startManPosition = Position(x: 0, y: 0)
+//        level.startManPosition = NSKeyedArchiver.archivedData(withRootObject: startManPosition)
+//        let startBoxPosition = Position(x: 1, y: 2)
+//        level.startBoxPosition = NSKeyedArchiver.archivedData(withRootObject: startBoxPosition)
+//        let winPosition = Position(x: 3, y: 0)
+//        level.winPosition = NSKeyedArchiver.archivedData(withRootObject: winPosition)
+//        try! context.save()
+//        return level
+//    }
+//    func addLevel4() -> Level {
+//        let level = NSEntityDescription.insertNewObject(forEntityName: "Level", into: context) as! Level
+//        var blocks = Set<Position>()
+//        blocks.insert(Position(x: 2, y: 1))
+//        blocks.insert(Position(x: 4, y: 3))
+//        blocks.insert(Position(x: 1, y: 0))
+//        blocks.insert(Position(x: 1, y: 3))
+//        level.blocks = NSKeyedArchiver.archivedData(withRootObject: blocks)
+//        level.levelDescription = "👸: Honey, bring me 💍!"
+//        level.levelNumber = 3
+//        level.levelName = "Level 4"
+//        level.roomHeight = 5
+//        level.roomWidth = 7
+//        let startManPosition = Position(x: 0, y: 0)
+//        level.startManPosition = NSKeyedArchiver.archivedData(withRootObject: startManPosition)
+//        let startBoxPosition = Position(x: 2, y: 3)
+//        level.startBoxPosition = NSKeyedArchiver.archivedData(withRootObject: startBoxPosition)
+//        let winPosition = Position(x: 4, y: 4)
+//        level.winPosition = NSKeyedArchiver.archivedData(withRootObject: winPosition)
+//        try! context.save()
+//        return level
+//    }
     
 }
 
