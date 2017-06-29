@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class LevelDataController {
+class LevelDataWriter {
     let context = (UIApplication.shared.delegate as! AppDelegate).dataController.managedObjectContext
     
     func fillCoreData () -> [Level] {

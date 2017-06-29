@@ -14,14 +14,13 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var cellTitles = [String]()
     var cellSubtitles = [String]()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+    //MARK: VC LifeCycle
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         menuModel = MenuModel()
         cellTitles =  menuModel.getCellTitles()
         cellSubtitles = menuModel.getCellSubtitles()
+
     }
     
     //MARK: UITableViewDataSource
@@ -52,7 +51,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let destination = segue.destination as! ViewController
             let cellSender = sender as! UITableViewCell
             let index = tableView.indexPath(for: cellSender)!.row
-            destination.level = menuModel.getLevelsFromCoreData()[index]
+            destination.level = menuModel.getLevelAtIndex(index)
         }
     }
 }

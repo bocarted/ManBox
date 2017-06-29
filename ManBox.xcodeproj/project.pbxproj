@@ -13,7 +13,7 @@
 		2762F6881EE48E6E006C2A56 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2762F6871EE48E6E006C2A56 /* MenuModel.swift */; };
 		2762F68B1EE4912F006C2A56 /* LevelData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2762F6891EE4912F006C2A56 /* LevelData+CoreDataClass.swift */; };
 		2762F68C1EE4912F006C2A56 /* LevelData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2762F68A1EE4912F006C2A56 /* LevelData+CoreDataProperties.swift */; };
-		2762F68E1EE49884006C2A56 /* LevelDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2762F68D1EE49884006C2A56 /* LevelDataController.swift */; };
+		2762F68E1EE49884006C2A56 /* LevelDataWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2762F68D1EE49884006C2A56 /* LevelDataWriter.swift */; };
 		277CCC811EC4A517000F2438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CCC801EC4A517000F2438 /* AppDelegate.swift */; };
 		277CCC831EC4A517000F2438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CCC821EC4A517000F2438 /* ViewController.swift */; };
 		277CCC861EC4A518000F2438 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277CCC841EC4A518000F2438 /* Main.storyboard */; };
@@ -32,7 +32,7 @@
 		2762F6871EE48E6E006C2A56 /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		2762F6891EE4912F006C2A56 /* LevelData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LevelData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2762F68A1EE4912F006C2A56 /* LevelData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LevelData+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2762F68D1EE49884006C2A56 /* LevelDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelDataController.swift; sourceTree = "<group>"; };
+		2762F68D1EE49884006C2A56 /* LevelDataWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelDataWriter.swift; sourceTree = "<group>"; };
 		277CCC7D1EC4A517000F2438 /* ManBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		277CCC801EC4A517000F2438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		277CCC821EC4A517000F2438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ManBox/ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 				2762F6891EE4912F006C2A56 /* LevelData+CoreDataClass.swift */,
 				2762F68A1EE4912F006C2A56 /* LevelData+CoreDataProperties.swift */,
 				EE326F431ED99ED300323067 /* LevelCoreData.xcdatamodeld */,
-				2762F68D1EE49884006C2A56 /* LevelDataController.swift */,
+				2762F68D1EE49884006C2A56 /* LevelDataWriter.swift */,
 				EEAC29541F02EEEC007B8693 /* PositionSerializer.swift */,
 			);
 			name = CoreData;
@@ -216,7 +216,7 @@
 				2762F68B1EE4912F006C2A56 /* LevelData+CoreDataClass.swift in Sources */,
 				277CCC941EC4A594000F2438 /* Model.swift in Sources */,
 				EEAC29551F02EEEC007B8693 /* PositionSerializer.swift in Sources */,
-				2762F68E1EE49884006C2A56 /* LevelDataController.swift in Sources */,
+				2762F68E1EE49884006C2A56 /* LevelDataWriter.swift in Sources */,
 				EE326F451ED99ED300323067 /* LevelCoreData.xcdatamodeld in Sources */,
 				2762F68C1EE4912F006C2A56 /* LevelData+CoreDataProperties.swift in Sources */,
 				2762F6881EE48E6E006C2A56 /* MenuModel.swift in Sources */,

@@ -10,38 +10,34 @@ import UIKit
 import CoreData
 
 class MenuModel {
-    let context = (UIApplication.shared.delegate as! AppDelegate).dataController.managedObjectContext
-    lazy var levelDataController = LevelDataController()
     
-    
-    
+    //MARK: Public API
     func getCellTitles() -> [String] {
-        var cellTitles = [String]()
-        let levels : [Level] = getLevelsFromCoreData()
-        for level in levels {
-            cellTitles.append(level.levelName)
-        }
-        return cellTitles
+        return levels.map {$0.levelName}
     }
     
     func getCellSubtitles() -> [String] {
-        var cellSubtitles = [String]()
-        let levels : [Level] = getLevelsFromCoreData()
-        for level in levels {
-            cellSubtitles.append(level.levelDescription)
-        }
-        return cellSubtitles
+        return levels.map {$0.levelDescription}
     }
     
-    func getLevelsFromCoreData() -> [Level] {
-        var levels = try! context.fetch(requestLevels())
+    func getLevelAtIndex(_ index : Int) -> Level {
+        return levels[index]
+    }
+    
+    //MARK: Private Imp
+    
+    private let context = (UIApplication.shared.delegate as! AppDelegate).dataController.managedObjectContext
+    private var levels : [Level] {
+        var levels = try! context.fetch(requestLevels)
         if levels.count == 0 {
-            levels = levelDataController.fillCoreData()
+            levels = levelDataWriter.fillCoreData()
         }
         return levels
     }
+    private lazy var levelDataWriter = LevelDataWriter()
     
-    func requestLevels() -> NSFetchRequest<Level> {
+    
+    private var requestLevels : NSFetchRequest<Level> {
         let requestLevels : NSFetchRequest = Level.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "levelNumber", ascending: true)
         requestLevels.sortDescriptors = [sortDescriptor]
